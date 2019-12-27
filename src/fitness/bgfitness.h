@@ -15,10 +15,11 @@ class BGFitness : public BaseFitness {
  public:
   BGFitness(QJsonObject const &a_config);
 
-  void process();
+  void process(imageErrors a_imageError);
+  struct fitness getFitness();
 
  private:
-
+    imageErrors m_errorsAccumulation;
 };
 } // namespace Fitness
 

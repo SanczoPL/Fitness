@@ -31,14 +31,19 @@ void FitnessCalculation::configure(QJsonObject const &a_config)
   }
 }
 
-void FitnessCalculation::process(cv::Mat &a_image,cv::Mat &a_gt,cv::Mat &a_pre,cv::Mat &a_post)
+void FitnessCalculation::process(imageErrors a_imageError)
 {
   H_Logger->trace("FitnessCalculation::process(a_image)");
   m_timer.start();
-  m_baseFitness->process();
+  m_baseFitness->process(a_imageError);
   m_timer.stop();
 }
 double FitnessCalculation::getElapsedTimeSubtractor()
 {
   return m_timer.getTimeMilli();
+}
+
+struct fitness getFitness()
+{
+  struct fitness a_fitness = m_baseFitness->getFitness();
 }

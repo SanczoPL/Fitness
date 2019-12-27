@@ -10,6 +10,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
+
 class BaseFitness;
 class QJsonArray;
 namespace cv
@@ -21,11 +22,12 @@ class TickMeter;
 class FitnessCalculation
 {
  public:
-  FitnessCalculation(QJsonObject const &m_filter);
+  FitnessCalculation(QJsonObject const &a_config);
   ~FitnessCalculation();
 
-  void configure(QJsonObject const &m_filter);
-  void process(cv::Mat &a_image,cv::Mat &a_gt,cv::Mat &a_pre,cv::Mat &a_post);
+  void configure(QJsonObject const &a_config);
+  void process(imageErrors a_imageError);
+  struct fitness getFitness();
   double getElapsedTimeSubtractor();
 
  private:

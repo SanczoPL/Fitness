@@ -10,7 +10,8 @@ class None : public BaseFitness {
  public:
 	None();
 
-	void process();
+	void process(imageErrors a_imageError);
+	struct fitness getFitness();
 
  private:
 };
