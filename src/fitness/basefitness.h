@@ -38,6 +38,21 @@ struct fitness
 };
 
 
+struct fitnessFunction
+{
+  bool Accuracy;
+  bool Recall;
+  bool Specificity;
+  bool FPR;
+  bool FNR;
+  bool PWC;
+  bool Precision;
+  bool NegativePrecision;
+  bool FMeasure;
+  bool fitnessTime;
+};
+
+
 class BaseFitness
 {
  public:

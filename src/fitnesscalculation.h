@@ -13,10 +13,14 @@
 
 class BaseFitness;
 class QJsonArray;
+struct imageErrors;
+struct fitness;
+struct fitnessFunction;
+
 namespace cv
 {
-class Mat;
-class TickMeter;
+  class Mat;
+  class TickMeter;
 } // namespace cv
 
 class FitnessCalculation

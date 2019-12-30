@@ -9,6 +9,7 @@
 #include <QtCore>
 
 class QJsonObject;
+struct fitnessFunction;
 
 namespace Fitness {
 class BGFitness : public BaseFitness {
@@ -19,7 +20,8 @@ class BGFitness : public BaseFitness {
   struct fitness getFitness();
 
  private:
-    imageErrors m_errorsAccumulation;
+    imageErrors m_errors;
+    fitnessFunction m_activeFitnessFunction;
 };
 } // namespace Fitness
 

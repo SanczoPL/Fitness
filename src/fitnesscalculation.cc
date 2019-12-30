@@ -43,7 +43,8 @@ double FitnessCalculation::getElapsedTimeSubtractor()
   return m_timer.getTimeMilli();
 }
 
-struct fitness getFitness()
+struct fitness FitnessCalculation::getFitness()
 {
   struct fitness a_fitness = m_baseFitness->getFitness();
+  return a_fitness;
 }
