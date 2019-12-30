@@ -14,3 +14,6 @@ struct fitness Fitness::None::getFitness()
     struct fitness fs;
     return fs;
 }
+void Fitness::None::addTime(double time)
+{
+}

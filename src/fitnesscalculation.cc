@@ -48,3 +48,8 @@ struct fitness FitnessCalculation::getFitness()
   struct fitness a_fitness = m_baseFitness->getFitness();
   return a_fitness;
 }
+
+void FitnessCalculation::addTime(double time)
+{
+  m_baseFitness->addTime(time);
+}

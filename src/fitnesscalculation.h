@@ -31,6 +31,7 @@ class FitnessCalculation
 
   void configure(QJsonObject const &a_config);
   void process(imageErrors a_imageError);
+  void addTime(double time);
   struct fitness getFitness();
   double getElapsedTimeSubtractor();
 

@@ -19,7 +19,7 @@ Fitness::BGFitness::BGFitness(QJsonObject const &a_config)
 
     for(qint32 i = 0 ; i < activeFitnessList.size() ; i++)
     {
-        H_Logger->warn("activeFitnessList[{}]:{}",i,activeFitnessList[i].toStdString().c_str());
+        H_Logger->trace("activeFitnessList[{}]:{}",i,activeFitnessList[i].toStdString().c_str());
         if(activeFitnessList[i] == QString::fromStdString("Accuracy"))
         {
             m_activeFitnessFunction.Accuracy = true;
@@ -66,6 +66,11 @@ void Fitness::BGFitness::process(imageErrors a_imageError)
     m_errors.nbShadowError += a_imageError.nbShadowError;
 }
 
+void Fitness::BGFitness::addTime(double time)
+{
+  m_errors.time = time;
+}
+
 struct fitness Fitness::BGFitness::getFitness()
 {
   double fn = m_errors.fnError ? m_errors.fnError : 1;
@@ -73,6 +78,9 @@ struct fitness Fitness::BGFitness::getFitness()
   double tn = m_errors.tnError ? m_errors.tnError : 1;
   double tp = m_errors.tpError ? m_errors.tpError : 1;
   double nb = m_errors.nbShadowError ? m_errors.nbShadowError : 1;
+  double time = m_errors.time ? m_errors.time : 1;
+
+  H_Logger->trace("time:{}",time);
 
   struct fitness fs;
   fs.fn = fn;
@@ -80,9 +88,10 @@ struct fitness Fitness::BGFitness::getFitness()
   fs.tn = tn;
   fs.tp = tp;
   fs.nb = nb;
-  fs.time = m_errors.time;
+  fs.time = time;
   fs.fitness = 0;
   fs.fitnessTime = static_cast<double>((1 / fs.time) * 200);
+  H_Logger->trace("fitnessTime:{}",fs.fitnessTime);
   fs.Accuracy = static_cast<double>((tp + tn) / (tp + tn + fp + fn));
   fs.Recall = (tp / (tp + fn));
   fs.Specificity = (tn / (tn + fp));

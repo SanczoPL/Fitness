@@ -18,6 +18,7 @@ class BGFitness : public BaseFitness {
 
   void process(imageErrors a_imageError);
   struct fitness getFitness();
+  void addTime(double time);
 
  private:
     imageErrors m_errors;
