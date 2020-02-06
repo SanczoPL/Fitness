@@ -22,7 +22,6 @@ void FitnessCalculation::configure(QJsonObject const &a_config)
   delete m_baseFitness;
   m_timer.reset();
   
-
   switch (NAME_SID)
   {
     case SID("BGFitness"): m_baseFitness = new Fitness::BGFitness{ a_config }; break;
