@@ -1,19 +1,11 @@
 #include "none.h"
 
-Fitness::None::None()
-{
+Fitness::None::None() {}
 
-}
-
-void Fitness::None::process(imageErrors a_imageError)
-{
-
-}
+void Fitness::None::process(imageErrors a_imageError) {}
 struct fitness Fitness::None::getFitness()
 {
-    struct fitness fs;
-    return fs;
+  struct fitness fs;
+  return fs;
 }
-void Fitness::None::addTime(double time)
-{
-}
+void Fitness::None::addTime(double time) {}

@@ -1,18 +1,22 @@
 #ifndef FITNESS_BGFITNESS_H
 #define FITNESS_BGFITNESS_H
 
-#include "basefitness.h"
+#include <QtCore>
+
 #include <opencv2/opencv.hpp>
 #include "opencv2/highgui/highgui.hpp"
 #include "opencv2/imgproc/imgproc.hpp"
+
 #include "../../../../IncludeSpdlog/spdlog.h"
-#include <QtCore>
+#include "basefitness.h"
 
 class QJsonObject;
 struct fitnessFunction;
 
-namespace Fitness {
-class BGFitness : public BaseFitness {
+namespace Fitness
+{
+class BGFitness : public BaseFitness
+{
  public:
   BGFitness(QJsonObject const &a_config);
 
@@ -21,8 +25,8 @@ class BGFitness : public BaseFitness {
   void addTime(double time);
 
  private:
-    imageErrors m_errors;
-    fitnessFunction m_activeFitnessFunction;
+  imageErrors m_errors;
+  fitnessFunction m_activeFitnessFunction;
 };
 } // namespace Fitness
 

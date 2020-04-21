@@ -1,10 +1,11 @@
 #ifndef BASE_FITNESS_H
 #define BASE_FITNESS_H
 
-#include <opencv2/imgproc.hpp>
 #include <QObject>
-#include "../../../src/structures.h"
 
+#include <opencv2/imgproc.hpp>
+
+#include "../../../src/structures.h"
 
 class BaseFitness
 {
